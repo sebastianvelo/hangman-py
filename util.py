@@ -2,6 +2,14 @@ import random
 import os
 import assets
 
+def get_init_config(): 
+    word = get_random_word()
+    return {
+        'attempts': get_initial_attempts(),
+        'word': word,
+        'display_word': get_initial_placeholder(word)
+    }
+
 def get_random_word() -> str:
     return random.choice(assets.WORDS)
 

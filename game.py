@@ -1,13 +1,12 @@
-from util import (clear, get_initial_attempts, get_initial_placeholder,
-                  get_random_word, get_user_input, print_image,
-                  print_placeholder, user_has_lost,
-                  user_has_won)
+from operator import itemgetter
+
+from util import (clear, get_init_config, get_user_input, print_image,
+                  print_placeholder, user_has_lost, user_has_won)
 
 
 def play():
-    word: str = get_random_word()
-    diplay_word: list[str] = get_initial_placeholder(word)
-    attempts: int = get_initial_attempts()
+    attempts, word, diplay_word = itemgetter(
+        'attempts', 'word', 'display_word')(get_init_config())
 
     while not user_has_lost(attempts):
         clear()
