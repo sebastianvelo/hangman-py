@@ -1,12 +1,9 @@
-from operator import itemgetter
-
 from util import (clear, get_init_config, get_user_input, print_image,
                   print_placeholder, user_has_lost, user_has_won)
 
 
 def play():
-    attempts, word, diplay_word = itemgetter(
-        'attempts', 'word', 'display_word')(get_init_config())
+    attempts, word, diplay_word = get_init_config().values()
 
     while not user_has_lost(attempts):
         clear()
